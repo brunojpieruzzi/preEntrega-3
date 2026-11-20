@@ -4,3 +4,6 @@ venv/
 __pycache__/
 vectorstore/
 *.pyc
+
+# Notas personales
+NOTAS_ESTUDIO.md

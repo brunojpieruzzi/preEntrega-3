@@ -59,7 +59,21 @@ Sistema de recuperación semántica end-to-end: ingesta de documentos → base v
 1. **Pregunta con respuesta en los documentos:** *"¿Cuánto dura un token de API por defecto y cuántos puedo tener activos?"* → debe responder 90 días y máximo 20 tokens, citando `02_autenticacion.md`.
 2. **Pregunta trampa:** *"¿Cuál es el precio de Nimbus en euros para clientes de Alemania?"* → los documentos solo mencionan precios en dólares y nada sobre Alemania, por lo que el modelo debe responder `No lo sé` sin referencias.
 
-> Pega aquí tu salida real tras ejecutar `python rag.py` para dejar evidencia de las pruebas.
+### Resultado real de la ejecución
+
+```
+=== Pregunta con respuesta en los documentos ===
+P: ¿Cuánto dura un token de API por defecto y cuántos puedo tener activos?
+R: Por defecto, un token de API vence a los 90 días y cada cuenta puede tener como máximo 20 tokens activos al mismo tiempo.
+Referencias: ['02_autenticacion.md#2']
+
+=== Pregunta trampa (no está en los documentos) ===
+P: ¿Cuál es el precio de Nimbus en euros para clientes de Alemania?
+R: No lo sé
+Referencias: []
+```
+
+El modelo respondió correctamente con la información de los documentos y citó la fuente; ante la pregunta trampa no alucinó y devolvió "No lo sé" con referencias vacías.
 
 ## Variables de entorno
 
